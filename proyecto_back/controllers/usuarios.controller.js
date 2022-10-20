@@ -12,7 +12,6 @@ exports.create = function(req, res) {
         mail: req.body.mail,
         admin: req.body.admin,
         confirmado: req.body.confirmado,
-        
     })
 
     usuario.save(function(err) {
