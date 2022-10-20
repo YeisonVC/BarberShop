@@ -8,6 +8,8 @@ var database = require("./config/database");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var usuariosRouter = require('./routes/usuarios.router');
+var serviciosRouter = require('./routes/servicios.router');
+var citasRouter = require('./routes/citas.router');
 
 var app = express();
 
@@ -24,6 +26,8 @@ database.mongoConnect();
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/usuarios', usuariosRouter);
+app.use('/servicios', serviciosRouter);
+app.use('/citas', citasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
