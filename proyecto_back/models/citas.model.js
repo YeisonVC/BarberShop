@@ -6,8 +6,9 @@ const CitasSchema = new Schema ({
     hora:{type: String, required: true, max: 60},
     usuarioId:
         {
+            required: true,
             type: mongoose.Schema.Types.ObjectId,
-            ref: "servicios",
+            ref: "usuarios",
         }
 
 });
