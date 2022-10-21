@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var database = require("./config/database");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var usuariosRouter = require('./routes/usuarios.router');
+//var indexRouter = require('./routes/index');
+//var usersRouter = require('./routes/users');
+var auth = this.require("./auth/main_auth");
 var serviciosRouter = require('./routes/servicios.router');
 var citasRouter = require('./routes/citas.router');
 var citasServiciosRouter = require('./routes/citasServicios.router');
@@ -23,10 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Mongo connection
 database.mongoConnect(); 
 
+app.use(auth);
 //Router
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/usuarios', usuariosRouter);
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
 app.use('/servicios', serviciosRouter);
 app.use('/citas', citasRouter);
 app.use('/citasServicios', citasServiciosRouter);

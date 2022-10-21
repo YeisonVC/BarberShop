@@ -1,42 +1,23 @@
 const Usuario = require("../models/usuarios.model");
-let response = {
-    msg: "",
-    exito: false
-}
+const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 
-exports.create = function(req, res) {
-    let usuario = new Usuario ({
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        telefono: req.body.telefono,
-        mail: req.body.mail,
-        admin: req.body.admin,
-        confirmado: req.body.confirmado,
-    })
+//npm install jsonwebtoken
+exports.login = function(req, res, next){
+    
+    let hashedpass = crypto.createHash("sha512").update(req.body.pass).digest("hex");
 
-    usuario.save(function(err) {
-        if(err){
-            console.error(err),
-            response.exito = false, 
-            response.msg = "Error al guardar el usuario"
-            res.json(response)
-            return;
+    Usuario.findOne({ ususario: req.body.usuario, pass: hashedpass}, function(err, usuario){
+        let response = {
+            token: null
         }
 
-        response.exito = true,
-        response.msg = "El usuario se guardó correctamente"
-        res.json(response)
-    })
-}
-
-exports.find = function(req, res){// encontrar todos los empleados de la base de datos
-    Usuario.find( function(err, usuarios) {
-        res.json(usuarios)
-    })
-}
-
-exports.findOne = function(req, res){// encontrar un empleado dependiendo de su id
-    Usuario.findOne({_id: req.params.id}, function(err, usuario) {
-        res.json(usuario)
+        if(usuario !== null){
+            response.token = jwt.sign({
+                id: usuario._id,
+                usuario: usuario.usuario
+            }, "__recret__")
+        }
+        res.json(response);
     })
 }
