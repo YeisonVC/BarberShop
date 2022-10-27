@@ -5,12 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var database = require("./config/database");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var usuariosRouter = require('./routes/usuarios.router');
+//var indexRouter = require('./routes/index');
+//var usersRouter = require('./routes/users');
+var auth = require("./auth/main_auth");
 var serviciosRouter = require('./routes/servicios.router');
 var citasRouter = require('./routes/citas.router');
 var citasServiciosRouter = require('./routes/citasServicios.router');
+var usuariosRouter = require('./routes/usuarios.router');
 
 var app = express();
 
@@ -24,9 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 database.mongoConnect(); 
 
 //Router
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+//primero se logea se autentica para poder acceder s lo demás
 app.use('/usuarios', usuariosRouter);
+app.use(auth);//Debería ir después del proceso de Login
+
 app.use('/servicios', serviciosRouter);
 app.use('/citas', citasRouter);
 app.use('/citasServicios', citasServiciosRouter);
