@@ -1,15 +1,7 @@
 @use 'variables' as v;
 
 //Dark and Light mode
-[data-theme="light"], a{
-    background-color: #FFFFFF;
-    color: #000000;
-}
 
-[data-theme="dark"], a{
-    background-color: #161B22;
-    color: #FFFFFF;
-}
 
 html {
     font-size: 62.5%;

@@ -308,16 +308,6 @@ template {
 }
 
 /** Media Queries **/
-[data-theme=light], a {
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-[data-theme=dark], a {
-  background-color: #161B22;
-  color: #FFFFFF;
-}
-
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -382,6 +372,77 @@ p {
   font-size: 2rem;
 }
 
+.dark .text {
+  color: #FFFFFF;
+}
+.dark .background {
+  background-color: #0D1117;
+}
+.dark .enlace {
+  color: #FFFFFF;
+}
+.dark .borde {
+  border-color: #FFFFFF;
+}
+.dark .logo {
+  background-image: url("../img/logo_black.png");
+  background-size: 14rem;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 10%;
+  width: 100%;
+}
+.dark .hover-bg:hover {
+  background-color: #FFFFFF;
+}
+.dark .hover-bg:hover .text {
+  color: #0D1117;
+}
+.dark .hover-bg:hover .enlace {
+  color: #0D1117;
+}
+
+.dark * {
+  transition: 0.3s ease-out;
+}
+
+.light {
+  transition: 0.3s ease-out;
+}
+.light .text {
+  color: #0D1117;
+}
+.light .background {
+  background-color: #FFFFFF;
+}
+.light .enlace {
+  color: #0D1117;
+}
+.light .borde {
+  border-color: #0D1117;
+}
+.light .logo {
+  background-image: url("../img/logo_white.png");
+  background-size: 14rem;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 10%;
+  width: 100%;
+}
+.light .hover-bg:hover {
+  background-color: #0D1117;
+}
+.light .hover-bg:hover .text {
+  color: #FFFFFF;
+}
+.light .hover-bg:hover .enlace {
+  color: #FFFFFF;
+}
+
+.light * {
+  transition: 0.3s ease-out;
+}
+
 .Navbar-header {
   font-weight: normal;
   position: sticky;
@@ -393,7 +454,7 @@ p {
 }
 .Navbar-header .Navbar-logo {
   height: 100%;
-  width: auto;
+  width: 15rem;
 }
 
 .Navbar-theme {
@@ -463,13 +524,13 @@ p {
   align-content: center;
   height: 4rem;
   width: 12rem;
-  border: 2px solid #FFFFFF;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 1rem;
 }
 .Navbar-sesion .Navbar-sesion__singup a {
   font-size: 2rem;
   font-weight: 700;
-  color: #FFFFFF;
 }
 .Navbar-sesion .Navbar-sesion__login {
   display: flex;
@@ -482,5 +543,4 @@ p {
 .Navbar-sesion .Navbar-sesion__login a {
   font-size: 2rem;
   font-weight: 700;
-  color: #FFFFFF;
 }

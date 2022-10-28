@@ -1,0 +1,90 @@
+@use 'variables' as v;
+
+.dark {
+    .text {
+        color: v.$light;
+    }
+
+    .background {
+        background-color: v.$dark;
+    }
+
+    .enlace {
+        color: v.$light;
+    }
+
+    .borde {
+        border-color: v.$light;
+    }
+
+    .logo {
+        background-image: url('../img/logo_black.png');
+        background-size: 14rem;
+        background-repeat: no-repeat;
+        background-position: top center;
+        height: 10%;
+        width: 100%;
+    }
+
+    .hover-bg:hover {
+        background-color: v.$light;
+
+        .text {
+            color: v.$dark;
+        }
+        
+        .enlace {
+            color: v.$dark;
+        }
+    }
+    
+}
+
+.dark * {
+    transition: .3s ease-out;
+}
+
+.light {
+    .text {
+        color: v.$dark;
+    }
+
+    .background {
+        background-color: v.$light;
+    }
+
+    .enlace {
+        color: v.$dark;
+    }
+
+    .borde {
+        border-color: v.$dark;
+    }
+
+    .logo {
+        background-image: url('../img/logo_white.png');
+        background-size: 14rem;
+        background-repeat: no-repeat;
+        background-position: top center;
+        height: 10%;
+        width: 100%;
+    }
+
+    .hover-bg:hover {
+        background-color: v.$dark;
+
+        .text {
+            color: v.$light;
+        }
+        
+        .enlace {
+            color: v.$light;
+        }
+    }
+
+    transition: .3s ease-out;
+}
+
+.light * {
+    transition: .3s ease-out;
+}

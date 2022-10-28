@@ -12,10 +12,8 @@
 
     .Navbar-logo {
         height: 100%;
-        width: auto;
+        width: 15rem;
     }
-
-    
 }
 
 // Boton theme mode
@@ -98,14 +96,14 @@
         align-content: center;
         height: 4rem;
         width: 12rem;
-        border: 2px solid #FFFFFF;
+        border-width: 2px;
+        border-style:solid;
         border-radius: 1rem;
     }
         
     .Navbar-sesion__singup a {
         font-size: 2rem;
         font-weight: 700;
-        color: v.$blanco;
     }
 
     .Navbar-sesion__login {
@@ -120,7 +118,6 @@
     .Navbar-sesion__login a {
         font-size: 2rem;
         font-weight: 700;
-        color: v.$blanco;
     }
 }
 
