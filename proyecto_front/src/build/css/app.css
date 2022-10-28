@@ -308,6 +308,16 @@ template {
 }
 
 /** Media Queries **/
+[data-theme=light], a {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+[data-theme=dark], a {
+  background-color: #161B22;
+  color: #FFFFFF;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -367,10 +377,110 @@ h3 {
 }
 
 p {
+  font-family: "Poppins", sans-serif;
   color: #FFFFFF;
   font-size: 2rem;
 }
 
-body {
-  background-color: blue;
+.Navbar-header {
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7rem;
+}
+.Navbar-header .Navbar-logo {
+  height: 100%;
+  width: auto;
+}
+
+.Navbar-theme {
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  transition: 0.4s;
+}
+.Navbar-theme .switch {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+}
+.Navbar-theme .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.Navbar-theme .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #142bff;
+  transition: 0.4s;
+  border-radius: 3rem;
+}
+.Navbar-theme .slider:before {
+  position: absolute;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  border-radius: 2rem;
+  left: 0.3rem;
+  top: 10%;
+  background: #142bff;
+  box-shadow: inset -3px -2px 5px -20px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  transition: 0.4s;
+}
+.Navbar-theme input:checked + .slider {
+  background-color: #E9FF63;
+}
+.Navbar-theme input:checked + .slider::before {
+  left: calc(100% - 1.3rem);
+  transform: translateX(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  box-shadow: none;
+}
+.Navbar-theme label {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.Navbar-sesion {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+}
+.Navbar-sesion .Navbar-sesion__singup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 4rem;
+  width: 12rem;
+  border: 2px solid #FFFFFF;
+  border-radius: 1rem;
+}
+.Navbar-sesion .Navbar-sesion__singup a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.Navbar-sesion .Navbar-sesion__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 4rem;
+  width: 12rem;
+}
+.Navbar-sesion .Navbar-sesion__login a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
 }

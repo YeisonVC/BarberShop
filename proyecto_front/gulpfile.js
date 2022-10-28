@@ -15,7 +15,7 @@ function css( done ) {
     src('src/scss/**/*.scss')// Identificar el archivo SASS
         .pipe( plumber() )// No detener la ejecución si hay errores
         .pipe( sass() )// Compilarlo
-        .pipe( dest("public/build/css") )// Almacenarla en el disco duro
+        .pipe( dest("src/build/css") )// Almacenarla en el disco duro
     done();//Callback que avisa a gulp cuando llegamos al final
 }
 
@@ -25,7 +25,7 @@ function imagenes( done ) {
     }
     src('src/img/**/*.{png,jpg}')
         .pipe( cache( imagemin(opciones) ))
-        .pipe( dest("public/build/img") )
+        .pipe( dest("src/build/img") )
     done();
 }
 
@@ -35,7 +35,7 @@ function versionWebp( done ) {
     };
     src('src/img/**/*.{png,jpg}')
         .pipe( webp(opciones) )
-        .pipe( dest("public/build/img") )
+        .pipe( dest("src/build/img") )
     done();
 }
 
@@ -45,7 +45,13 @@ function versionAvif( done ) {
     };
     src('src/img/**/*.{png,jpg}')
         .pipe( avif(opciones) )
-        .pipe( dest("public/build/img") )
+        .pipe( dest("src/build/img") )
+    done();
+}
+
+function javascript( done ) {
+    src('src/js/**/*.js')
+        .pipe( dest("src/build/js") )
     done();
 }
 
@@ -54,11 +60,12 @@ function dev( done ) {
     done();//Callback que avisa a gulp cuando llegamos al final
 }
 
-//Ejecutar Invidividualmente
+//Ejecutar Individualmente
 exports.css = css;
+exports.javascript = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
 
 //Ejecutar en conjunto
-exports.dev = parallel(imagenes, versionWebp, versionAvif, dev);
+exports.dev = parallel(imagenes, versionWebp, versionAvif, javascript, dev);

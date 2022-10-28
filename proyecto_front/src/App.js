@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './build/css/app.css';
+
+//Componentes
+import { Navbar } from './components/Navbar';
 
 function App() {
+  console.log(Navbar.tema);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />    
+      <div>
+      <h2 data-theme={Navbar.thema}>hola mundo</h2>
+      <h2>hola mundo</h2>
+      <h2>hola mundo</h2>
+      <h2>hola mundo</h2>
+      <h2>hola mundo</h2>
     </div>
+    </div>
+
+    
   );
 }
 
