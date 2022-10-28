@@ -2,11 +2,13 @@ import React from 'react';
 
 //Imágenes
 
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext.tsx';
 
-import { useState } from 'react';
 
 export const Navbar = () => { 
-    const [theme, setTheme] = useState('dark');
+    const { theme, setTheme } = useContext(ThemeContext);
+
     console.log(theme);
     
     return (
