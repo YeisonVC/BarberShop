@@ -13,21 +13,21 @@ export const Navbar = () => {
     
     return (
         <div className={theme}>
-            <header className='Navbar-header background'>
+            <header className={`Navbar-header background ${theme}`}>
 
                 <div className='Navbar-logo logo'>
                     {/* logo */}
                 </div>
 
                 <div className='Navbar-theme'>
-                    <label className="text" htmlFor='checkbox'>Dark</label>
+                    <label className="text" htmlFor='checkbox'>Light</label>
                     <label className='switch'>
                         <input type="checkbox" id='checkbox'
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         />
                         <span className="slider"></span>
                     </label>
-                    <label className="text" htmlFor='checkbox'>Light</label>
+                    <label className="text" htmlFor='checkbox'>Dark</label>
                 </div>
             
                 <div className='Navbar-sesion'>
