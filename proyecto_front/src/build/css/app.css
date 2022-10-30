@@ -600,7 +600,7 @@ p {
   overflow: hidden;
 }
 .slider-frame .imagen1 {
-  background-image: url(../../img/1.jpg);
+  background-image: url(../../build/img/1.avif);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -608,7 +608,7 @@ p {
   width: 100%;
 }
 .slider-frame .imagen2 {
-  background-image: url(../../img/2.jpg);
+  background-image: url(../../build/img/2.avif);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -616,7 +616,7 @@ p {
   width: 100%;
 }
 .slider-frame .imagen3 {
-  background-image: url(../../img/3.jpg);
+  background-image: url(../../build/img/3.avif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -624,7 +624,7 @@ p {
   width: 100%;
 }
 .slider-frame .imagen4 {
-  background-image: url(../../img/4.jpg);
+  background-image: url(../../build/img/4.avif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
