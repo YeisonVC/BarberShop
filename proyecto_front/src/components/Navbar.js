@@ -1,7 +1,5 @@
 import React from 'react'; 
 
-//Imágenes
-
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext.tsx';
 
@@ -13,7 +11,7 @@ export const Navbar = () => {
     
     return (
         <div className={theme}>
-            <header className={`Navbar-header background ${theme}`}>
+            <header className={`Navbar-header background`}>
 
                 <div className='Navbar-logo logo'>
                     {/* logo */}

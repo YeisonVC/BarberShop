@@ -5,14 +5,51 @@
     font-weight: normal;
     position: sticky;
     top: 0;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 15rem;
     align-items: center;
-    height: 7rem;
+    background-color: transparent;
+    
+    .Navbar-sesion {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin: 0 auto;
+        @include m.tablet {
+            margin: 0;
+        }
+    }
 
     .Navbar-logo {
         height: 100%;
         width: 15rem;
+        margin: 0 auto;
+        @include m.tablet {
+            margin: 0;
+        }
+    }
+
+    .Navbar-theme {
+        margin: 0 auto;
+        @include m.tablet {
+            margin: 0;
+        }
+    }
+    
+    //telefono 333px
+    @media (max-width: 333px) {
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 7rem;
+        column-gap: 0;
     }
 }
 

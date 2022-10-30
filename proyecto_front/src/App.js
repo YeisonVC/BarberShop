@@ -11,7 +11,7 @@ import Slider from './context/Slider'
 function App() {
   //Theme
   const {theme, setTheme} = useContext(ThemeContext);
-  console.log('Hola desde App'+theme);
+  console.log('Hola desde App '+theme);
 
   
   return (
