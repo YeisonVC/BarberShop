@@ -11,7 +11,7 @@ export const Navbar = () => {
     
     return (
         <div className={theme}>
-            <header className={`Navbar-header background`}>
+            <header className={`Navbar-header background2`}>
 
                 <div className='Navbar-logo logo'>
                     {/* logo */}

@@ -9,7 +9,11 @@
     grid-template-columns: repeat(2, 1fr);
     height: 15rem;
     align-items: center;
-    background-color: transparent;
+
+    //css matik
+    -webkit-box-shadow: 0px 7px 15px -3px rgba(13,17,23,0.81);
+    -moz-box-shadow: 0px 7px 15px -3px rgba(13,17,23,0.81);
+    box-shadow: 0px 7px 15px -3px rgba(13,17,23,0.81);
     
     .Navbar-sesion {
         grid-column-start: 1;
@@ -108,7 +112,7 @@
     }
     
     input:checked + .slider::before {
-        left: calc(100% - 3.5rem);
+        left: calc(100% - 3.7rem);
         transform: translateX(-50%);
         background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
         box-shadow: none;

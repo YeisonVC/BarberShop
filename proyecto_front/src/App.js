@@ -19,7 +19,7 @@ function App() {
       <Navbar />  
 
       <div className={theme}>
-        <main className='main'>
+        <main className='main background'>
           
             <Slider />
 

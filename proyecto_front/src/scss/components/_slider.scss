@@ -2,16 +2,42 @@
 @use '../base/mixins' as m;
 
 .main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    min-height: 89vh;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 89vh;
+    }
+
+    @media (min-width: 1400px) {
+        min-height: 90vh;
+    }
+
+    @media (min-width: 1500px) {
+        min-height: 92vh;
+    }
+
+    @media (min-width: 1500px) {
+        min-height: 94vh;
+    }
 }
 
 .slider-frame {
     width: 100%;
-    height: 100%;
+    height: 20rem;
     margin: 0 auto 0 0;
     overflow: hidden;
+
+    @media (min-width: 350px) {
+        height: 30rem;
+    }
+
+    @include m.tablet {
+        height: 100%;
+    }
     
     .imagen1 {
         background-image: url(../../build/img/1.avif);
