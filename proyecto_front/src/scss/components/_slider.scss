@@ -4,12 +4,12 @@
 .main {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
     
     @include m.tablet {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        min-height: 89vh;
+        height: 89vh;
     }
 
     @media (min-width: 1400px) {

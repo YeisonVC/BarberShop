@@ -6,11 +6,12 @@ import { ThemeContext } from './context/ThemeContext.tsx';
 
 //Componentes
 import { Navbar } from './components/Navbar';
+import { Login } from './components/Login';
 import Slider from './context/Slider'
 
 function App() {
   //Theme
-  const {theme, setTheme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   console.log('Hola desde App '+theme);
 
   
@@ -20,12 +21,13 @@ function App() {
 
       <div className={theme}>
         <main className='main background'>
-          
-            <Slider />
+            
+              <Slider />
+            
 
-          <div>
-            {/* Content */}
-          </div>
+            
+              <Login />
+            
         </main>
       </div>
     </div>

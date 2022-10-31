@@ -30,7 +30,7 @@ export const Navbar = () => {
             
                 <div className='Navbar-sesion'>
                     <div className='Navbar-sesion__login'>
-                        <a className="enlace" href='./login'>Login In</a>
+                        <a className="enlace" href='./login'>Log In</a>
                     </div>
                     <div className='Navbar-sesion__singup borde hover-bg'>
                         <a className="enlace" href='./singup'>Sing Up</a>

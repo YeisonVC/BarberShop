@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -345,6 +346,62 @@ img {
   max-width: 100%;
 }
 
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 55%;
+}
+.formulario .informacion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  row-gap: 2rem;
+}
+.formulario .informacion .informacion-campo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formulario .informacion label {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+.formulario .informacion input {
+  width: 70%;
+  margin: 0 2rem;
+}
+.formulario .boton {
+  background-color: #0da6f3;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 700;
+  display: inline-block;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .formulario .boton {
+    width: auto;
+  }
+}
+.formulario .boton:hover {
+  background-color: #0a85c3;
+  cursor: pointer;
+}
+
+.texto_azul {
+  color: #0da6f3;
+}
+
 h1, h2, h3 {
   font-family: "Poppins", sans-serif;
   margin: 0 0 2.5rem 0;
@@ -598,13 +655,13 @@ p {
 .main {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100vh;
 }
 @media (min-width: 768px) {
   .main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    min-height: 89vh;
+    height: 89vh;
   }
 }
 @media (min-width: 1400px) {
@@ -705,4 +762,16 @@ p {
   95% {
     margin-left: -300%;
   }
+}
+.login {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login h2 {
+  margin-top: 3rem;
 }

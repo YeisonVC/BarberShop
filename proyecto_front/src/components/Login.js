@@ -1,0 +1,41 @@
+import React from 'react'; 
+
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext.tsx';
+
+
+export const Login = () => { 
+    const { theme } = useContext(ThemeContext);
+    console.log('Hola desde Login ' + theme);
+    
+    return (
+        <div className='login'>
+            <h2 className='text'>
+                Login
+            </h2>
+
+            <p className='text'>Inicia sesión con tus datos</p>
+
+            <form className='formulario formulario--login'>
+                <div className='informacion'>
+                    <div className='informacion-campo'>
+                        <label className='text'>
+                            Email:</label>
+                            <input type="text" name="name" />
+                        
+                    </div>
+                    <div className='informacion-campo'>
+                        <label className='text'>
+                            Password:</label>
+                            <input type="text" name="name" />
+                        
+                    </div>
+                </div>
+                <a href='./#' className='boton'>Iniciar Sesión</a>
+            </form>
+
+            <a href='./#' className='text'>¿Olvidaste tu contraseña?</a>
+            <a href='./#' className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'>Crear una</span></a>
+        </div>
+    )
+}
