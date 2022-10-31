@@ -7,6 +7,7 @@ import { ThemeContext } from './context/ThemeContext.tsx';
 //Componentes
 import { Navbar } from './components/Navbar';
 import { Login } from './components/Login';
+import { Registration } from './components/Registration';
 import Slider from './context/Slider'
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
             
 
             
-              <Login />
+              <Registration />
             
         </main>
       </div>

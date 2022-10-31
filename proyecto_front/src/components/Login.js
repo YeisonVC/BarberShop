@@ -20,14 +20,14 @@ export const Login = () => {
                 <div className='informacion'>
                     <div className='informacion-campo'>
                         <label className='text'>
-                            Email:</label>
-                            <input type="text" name="name" />
+                            E-mail:</label>
+                            <input type="text" name="name" placeholder='Tu Email'/>
                         
                     </div>
                     <div className='informacion-campo'>
                         <label className='text'>
-                            Password:</label>
-                            <input type="text" name="name" />
+                            Contraseña:</label>
+                            <input type="text" name="name" placeholder='Tu Contraseña'/>
                         
                     </div>
                 </div>

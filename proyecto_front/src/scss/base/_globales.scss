@@ -40,7 +40,12 @@ img {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 55%;
+    height: 62%;
+    width: 100%;
+
+    @include m.tablet {
+        width: 90%;
+    }
 
     .informacion {
         width: 100%;
@@ -61,6 +66,7 @@ img {
         }
 
         input {
+            border-radius: .7rem;
             width: 70%;
             margin: 0 2rem;
         }
