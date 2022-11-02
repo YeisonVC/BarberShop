@@ -1,6 +1,10 @@
 import React from 'react';
 import './build/css/app.css';
 
+//Router v6
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+//theme
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext.tsx';
 
@@ -17,22 +21,22 @@ function App() {
 
   
   return (
-    <div className="App">
-      <Navbar />  
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <div className={theme}>
+          <main className='main background'>
+                <Slider />
 
-      <div className={theme}>
-        <main className='main background'>
-            
-              <Slider />
-            
-
-            
-              <Registration />
-            
-        </main>
+                <Routes>
+                  <Route index element={<Login />} />
+                  <Route path='/singup' element={<Registration />} />
+                </Routes>
+                
+          </main>
+        </div>
       </div>
-    </div>
-
+    </BrowserRouter>
   );
 }
 

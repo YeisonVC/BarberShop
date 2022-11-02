@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext.tsx';
 
@@ -34,8 +34,8 @@ export const Login = () => {
                 <a href='./#' className='boton'>Iniciar Sesión</a>
             </form>
 
-            <a href='./#' className='text'>¿Olvidaste tu contraseña?</a>
-            <a href='./#' className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'>Crear una</span></a>
+            <Link to='/' className='text'>¿Olvidaste tu contraseña?</Link>
+            <Link to="/singup" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'>Crear una</span></Link>
         </div>
     )
 }

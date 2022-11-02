@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+import { Link } from 'react-router-dom'
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext.tsx';
 
@@ -52,7 +52,7 @@ export const Registration = () => {
                 <a href='./#' className='boton'>Crear Cuenta</a>
             </form>
 
-            <a href='./#' className='text'>¿Ya tienes una cuenta? <span className='texto_azul'>Iniciar Sesión</span></a>
+            <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'>Iniciar Sesión</span></Link>
         </div>
     )
 }
