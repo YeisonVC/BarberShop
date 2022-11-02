@@ -27,7 +27,7 @@ export const Login = () => {
                     <div className='informacion-campo'>
                         <label className='text'>
                             Contraseña:</label>
-                            <input type="text" name="name" placeholder='Tu Contraseña'/>
+                            <input type="password" name="name" placeholder='Tu Contraseña'/>
                         
                     </div>
                 </div>
