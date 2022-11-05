@@ -1,58 +1,75 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom'
-import { useContext } from 'react';
-import { ThemeContext } from '../theme/ThemeContext.tsx';
+import { Link } from 'react-router-dom';
 
 
 export const Singup = () => { 
-    const { theme } = useContext(ThemeContext);
-    console.log('Hola desde Login ' + theme);
     
     return (
-        <div className='login'>
-            <h2 className='text'>
+        <div className='background'>
+            <h1 className='nombre-pagina text'>
                 Crear Cuenta
-            </h2>
+            </h1>
 
-            <p className='text'>Llena el siguiente formulario para crear una cuenta</p>
+            <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
-            <form className='formulario formulario--login'>
-                <div className='informacion'>
-                    <div className='informacion-campo'>
-                        <label className='text'>
-                            Nombre:</label>
-                            <input type="text" name="name" placeholder='Tu Nombre'/>
-                        
-                    </div>
-                    <div className='informacion-campo'>
-                        <label className='text'>
-                            Apellido:</label>
-                            <input type="text" name="name" placeholder='Tu Apellido'/>
-                        
-                    </div>
-                    <div className='informacion-campo'>
-                        <label className='text'>
-                            Teléfono:</label>
-                            <input type="text" name="name" placeholder='Tu Teléfono'/>
-                        
-                    </div>
-                    <div className='informacion-campo'>
-                        <label className='text'>
-                            E-mail:</label>
-                            <input type="text" name="name" placeholder='Tu Email'/>
-                        
-                    </div>
-                    <div className='informacion-campo'>
-                        <label className='text'>
-                            Contraseña:</label>
-                            <input type="password" name="name" placeholder='Tu Contraseña'/>
-                        
-                    </div>
-                </div>
-                <a href='./#' className='boton'>Crear Cuenta</a>
+            <form className='formulario' method='POST' action='/crear-cuenta'>
+                    <div class="campo">
+                        <label className='text' for='nombre'>Nombre:</label>
+                        <input
+                            type="text"
+                            id='nombre'
+                            name="nombre"
+                            placeholder='Tu Nombre'
+                        />
+                    </div>{/* .campo */}
+
+                    <div class="campo">
+                        <label className='text' for='apellido'>Apellido:</label>
+                        <input
+                            type="text"
+                            id='apellido'
+                            name="apellido"
+                            placeholder='Tu Apellido'
+                        />
+                    </div>{/* .campo */}
+
+                    <div class="campo">
+                        <label className='text' for='telefono'>Teléfono:</label>
+                        <input
+                            type="tel"
+                            id='telefono'
+                            name="telefono"
+                            placeholder='Tu Teléfono'
+                        />
+                    </div>{/* .campo */}
+
+                    <div class="campo">
+                        <label className='text' for='email'>E-mail:</label>
+                        <input
+                            type="email"
+                            id='email'
+                            name="email"
+                            placeholder='Tu E-mail'
+                        />
+                    </div>{/* .campo */}
+
+                    <div class="campo">
+                        <label className='text' for='password'>Password:</label>
+                        <input
+                            type="password"
+                            id='password'
+                            name="password"
+                            placeholder='Tu Password'
+                        />
+                    </div>{/* .campo */}
+
+                <input type="submit" className="boton" value="Crear Cuenta"/>
             </form>
 
-            <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'>Iniciar Sesión</span></Link>
+            <div class="acciones">
+                <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></Link>
+                <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
+            </div>
         </div>
     )
 }

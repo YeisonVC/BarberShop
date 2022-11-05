@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -312,6 +313,15 @@ template {
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1b15;
+  color: #FFFFFF;
 }
 
 *, *:before, *:after {
@@ -335,10 +345,6 @@ a {
 
 img {
   max-width: 100%;
-}
-
-.texto_azul {
-  color: #0da6f3;
 }
 
 h1, h2, h3 {
@@ -368,9 +374,19 @@ p {
   font-size: 2rem;
 }
 
+.nombre-pagina {
+  text-align: center;
+  margin: 3rem 0;
+  font-weight: 700;
+}
+
+.descripcion-pagina {
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .contenedor-app {
-    min-height: 89vh;
+    height: 100%;
   }
 }
 @media (min-width: 1024px) {
@@ -412,9 +428,10 @@ p {
   }
 }
 .contenedor-app .app {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   padding: 3rem 0;
+  height: 100%;
 }
 
 .Navbar-header {
@@ -647,7 +664,7 @@ p {
   }
 }
 .dark .text {
-  color: #fdf3f3;
+  color: #fafafa;
 }
 .dark .background {
   background-color: #161B22;
@@ -656,10 +673,10 @@ p {
   background-color: #0D1117;
 }
 .dark .enlace {
-  color: #fdf3f3;
+  color: #fafafa;
 }
 .dark .borde {
-  border-color: #fdf3f3;
+  border-color: #fafafa;
 }
 .dark .logo {
   background-image: url("../img/logo_black.png");
@@ -668,7 +685,7 @@ p {
   background-position: top center;
 }
 .dark .hover-bg:hover {
-  background-color: #fdf3f3;
+  background-color: #fafafa;
 }
 .dark .hover-bg:hover .text {
   color: #161B22;
@@ -688,7 +705,7 @@ p {
   color: #161B22;
 }
 .light .background {
-  background-color: #fdf3f3;
+  background-color: #fafafa;
 }
 .light .background2 {
   background-color: #ffffff;
@@ -709,12 +726,84 @@ p {
   background-color: #161B22;
 }
 .light .hover-bg:hover .text {
-  color: #fdf3f3;
+  color: #fafafa;
 }
 .light .hover-bg:hover .enlace {
-  color: #fdf3f3;
+  color: #fafafa;
 }
 
 .light * {
   transition: 0.3s ease-out;
 }
+
+.formulario {
+  width: 100%;
+}
+
+.campo {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+.campo label {
+  flex: 0 0 10rem;
+}
+.campo input {
+  border: 1px solid #1a1b15;
+  overflow: hidden;
+  flex: 1;
+  padding: 1.25rem;
+  border-radius: 1rem;
+}
+
+.acciones {
+  margin-top: 5rem;
+}
+.acciones a {
+  color: #FFFFFF;
+  display: block;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.acciones a .texto_azul {
+  color: #0da6f3;
+}
+
+.boton {
+  background-color: #0da6f3;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 400;
+  display: inline-block;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 5rem 0;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .boton {
+    width: auto;
+  }
+}
+.boton:hover {
+  background-color: #0a85c3;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .boton {
+    margin: 4rem auto 0 auto;
+  }
+}
+
+/* Estilos al la barra de navegación */
+/* Estilos al Slider de imagenes */
+/* cambio entre modos Dark / Light */
+/* Estilos a los formularios */
+/* Estilos a los formularios */

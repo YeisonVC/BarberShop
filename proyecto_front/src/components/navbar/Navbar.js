@@ -6,8 +6,6 @@ import { ThemeContext } from '../theme/ThemeContext.tsx';
 
 export const Navbar = () => { 
     const { theme, setTheme } = useContext(ThemeContext);
-
-    console.log(theme);
     
     return (
         <div className={theme}>
@@ -30,10 +28,10 @@ export const Navbar = () => {
             
                 <div className='Navbar-sesion'>
                     <div className='Navbar-sesion__login'>
-                        <a className="enlace" href='./login'>Log In</a>
+                        <a className="enlace" href='/'>Log In</a>
                     </div>
                     <div className='Navbar-sesion__singup borde hover-bg'>
-                        <a className="enlace" href='./singup'>Sing Up</a>
+                        <a className="enlace" href='/crear-cuenta'>Sing Up</a>
                     </div>
                 </div>
 

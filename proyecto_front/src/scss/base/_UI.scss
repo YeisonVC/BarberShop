@@ -3,7 +3,7 @@
 
 .contenedor-app{
     @include m.tablet {
-        min-height: 89vh;
+        height: 100%;
     }
 
     @include m.desktop {
@@ -38,8 +38,9 @@
     }
 
     .app {
-        width: 95%;
+        width: 90%;
         margin: 0 auto;
         padding: 3rem 0;
+        height: 100%;
     }
 }

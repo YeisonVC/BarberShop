@@ -12,6 +12,7 @@ import { ThemeContext } from './components/theme/ThemeContext.tsx';
 import { Navbar } from './components/navbar/Navbar';
 import { Login }  from './components/login/Login';
 import { Singup } from './components/singup/Singup';
+import { Recuperar } from './components/recuperar/Recuperar';
 import Slider from './components/slider/Slider';
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
                   <div class="app">
                     <Routes>
                       <Route index element={<Login />} />
-                      <Route path='/singup' element={<Singup />} />
+                      <Route path='/crear-cuenta' element={<Singup />} />
+                      <Route path='/olvidaste' element={<Recuperar />} />
                     </Routes>
                   </div>
             </main>

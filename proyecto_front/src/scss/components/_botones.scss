@@ -1,0 +1,11 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.boton {
+    @include m.boton(v.$azul, v.$blanco);
+    margin: 0 auto;
+
+    @include m.tablet {
+        margin: 4rem auto 0 auto;
+    }
+}
