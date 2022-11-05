@@ -1,20 +1,19 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext.tsx';
-
+import { ThemeContext } from '../theme/ThemeContext.tsx';
 
 export const Login = () => { 
     const { theme } = useContext(ThemeContext);
     console.log('Hola desde Login ' + theme);
     
     return (
-        <div className='login'>
-            <h2 className='text'>
+        <div className='app background'>
+            <h1 className='nombre-pagina text'>
                 Login
-            </h2>
+            </h1>
 
-            <p className='text'>Inicia sesión con tus datos</p>
+            <p className='descripcion-pagina text'>Inicia sesión con tus datos</p>
 
             <form className='formulario formulario--login'>
                 <div className='informacion'>

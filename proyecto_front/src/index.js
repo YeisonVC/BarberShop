@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { ThemeProvider } from './context/ThemeContext.tsx';
+import { ThemeProvider } from './components/theme/ThemeContext.tsx';
 
 ReactDOM.render(
   <React.StrictMode>

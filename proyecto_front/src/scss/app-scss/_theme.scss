@@ -1,4 +1,4 @@
-@use 'variables' as v;
+@use '../base/variables' as v;
 
 .dark {
     .text {
@@ -26,8 +26,6 @@
         background-size: 14rem;
         background-repeat: no-repeat;
         background-position: top center;
-        height: 10%;
-        width: 100%;
     }
 
     .hover-bg:hover {
@@ -74,8 +72,6 @@
         background-size: 14rem;
         background-repeat: no-repeat;
         background-position: top center;
-        height: 10%;
-        width: 100%;
     }
 
     .hover-bg:hover {

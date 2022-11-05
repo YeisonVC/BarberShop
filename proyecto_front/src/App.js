@@ -6,13 +6,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 //theme
 import { useContext } from 'react';
-import { ThemeContext } from './context/ThemeContext.tsx';
+import { ThemeContext } from './components/theme/ThemeContext.tsx';
 
 //Componentes
-import { Navbar } from './components/Navbar';
-import { Login } from './components/Login';
-import { Registration } from './components/Registration';
-import Slider from './context/Slider'
+import { Navbar } from './components/navbar/Navbar';
+import { Login }  from './components/login/Login';
+import { Singup } from './components/singup/Singup';
+import Slider from './components/slider/Slider';
 
 function App() {
   //Theme
@@ -22,20 +22,22 @@ function App() {
   
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <div className={theme}>
-          <main className='main background'>
-                <Slider />
+      <div className={`${theme} App`}>
+          <Navbar />
+            <main className='contenedor-app background'>
+                  
+                  <div class="imagen">
+                    <Slider />
+                  </div>
 
-                <Routes>
-                  <Route index element={<Login />} />
-                  <Route path='/singup' element={<Registration />} />
-                </Routes>
-                
-          </main>
+                  <div class="app">
+                    <Routes>
+                      <Route index element={<Login />} />
+                      <Route path='/singup' element={<Singup />} />
+                    </Routes>
+                  </div>
+            </main>
         </div>
-      </div>
     </BrowserRouter>
   );
 }

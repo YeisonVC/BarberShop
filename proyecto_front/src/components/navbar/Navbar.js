@@ -1,9 +1,7 @@
 import React from 'react'; 
 
-import { Link } from 'react-router-dom'
-
 import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext.tsx';
+import { ThemeContext } from '../theme/ThemeContext.tsx';
 
 
 export const Navbar = () => { 
@@ -32,10 +30,10 @@ export const Navbar = () => {
             
                 <div className='Navbar-sesion'>
                     <div className='Navbar-sesion__login'>
-                        <Link to="/" className="enlace">Log In</Link>
+                        <a className="enlace" href='./login'>Log In</a>
                     </div>
                     <div className='Navbar-sesion__singup borde hover-bg'>
-                        <Link to="/singup" className="enlace">Sing Up</Link>
+                        <a className="enlace" href='./singup'>Sing Up</a>
                     </div>
                 </div>
 

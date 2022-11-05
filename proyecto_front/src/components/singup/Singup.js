@@ -1,10 +1,10 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext.tsx';
+import { ThemeContext } from '../theme/ThemeContext.tsx';
 
 
-export const Registration = () => { 
+export const Singup = () => { 
     const { theme } = useContext(ThemeContext);
     console.log('Hola desde Login ' + theme);
     

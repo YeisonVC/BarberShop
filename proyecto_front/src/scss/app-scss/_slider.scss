@@ -1,29 +1,6 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-.main {
-    display: flex;
-    flex-direction: column;
-    height: 120vh;
-    
-    @include m.tablet {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        height: 89vh;
-    }
-
-    @media (min-width: 1400px) {
-        min-height: 90vh;
-    }
-
-    @media (min-width: 1500px) {
-        min-height: 92vh;
-    }
-
-    @media (min-width: 1500px) {
-        min-height: 94vh;
-    }
-}
 
 .slider-frame {
     width: 100%;
