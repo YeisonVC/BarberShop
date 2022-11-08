@@ -13,8 +13,8 @@ export const Singup = () => {
             <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
             <form className='formulario' method='POST' action='/crear-cuenta'>
-                    <div class="campo">
-                        <label className='text' for='nombre'>Nombre:</label>
+                    <div className="campo">
+                        <label className='text' htmlFOR='nombre'>Nombre:</label>
                         <input
                             type="text"
                             id='nombre'
@@ -23,8 +23,8 @@ export const Singup = () => {
                         />
                     </div>{/* .campo */}
 
-                    <div class="campo">
-                        <label className='text' for='apellido'>Apellido:</label>
+                    <div className="campo">
+                        <label className='text' htmlFor='apellido'>Apellido:</label>
                         <input
                             type="text"
                             id='apellido'
@@ -33,8 +33,8 @@ export const Singup = () => {
                         />
                     </div>{/* .campo */}
 
-                    <div class="campo">
-                        <label className='text' for='telefono'>Teléfono:</label>
+                    <div className="campo">
+                        <label className='text' htmlFor='telefono'>Teléfono:</label>
                         <input
                             type="tel"
                             id='telefono'
@@ -43,8 +43,8 @@ export const Singup = () => {
                         />
                     </div>{/* .campo */}
 
-                    <div class="campo">
-                        <label className='text' for='email'>E-mail:</label>
+                    <div className="campo">
+                        <label className='text' htmlFor='email'>E-mail:</label>
                         <input
                             type="email"
                             id='email'
@@ -53,8 +53,8 @@ export const Singup = () => {
                         />
                     </div>{/* .campo */}
 
-                    <div class="campo">
-                        <label className='text' for='password'>Password:</label>
+                    <div className="campo">
+                        <label className='text' htmlFor='password'>Password:</label>
                         <input
                             type="password"
                             id='password'
@@ -66,7 +66,7 @@ export const Singup = () => {
                 <input type="submit" className="boton" value="Crear Cuenta"/>
             </form>
 
-            <div class="acciones">
+            <div className="acciones">
                 <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></Link>
                 <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
             </div>

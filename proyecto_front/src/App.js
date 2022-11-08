@@ -17,18 +17,16 @@ import Slider from './components/slider/Slider';
 function App() {
   //Theme
   const { theme } = useContext(ThemeContext);
-  console.log('Hola desde App '+theme);
-
   
   return (
     <div className={`${theme} App`}>
       <Navbar />
       <main className='contenedor-app background'>
-        <div class="imagen">
+        <div className="imagen">
           <Slider />
         </div>
 
-        <div class="app">
+        <div className="app">
           <AppRoutes />
         </div>
       </main>

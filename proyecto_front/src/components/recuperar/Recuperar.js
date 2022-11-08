@@ -13,7 +13,7 @@ export const Recuperar = () => {
 
             <form className='formulario' method='POST' action='/olvide'>
                 <div className='campo'>
-                    <label className='text' for='email'>E-mail:</label>
+                    <label className='text' htmlFor='email'>E-mail:</label>
                     <input 
                         type="email" 
                         id='email'
@@ -24,7 +24,7 @@ export const Recuperar = () => {
                 <input type="submit" className="boton" value="Recuperar"/>
             </form>
 
-            <div class="acciones">
+            <div className="acciones">
                 <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></Link>
                 <Link to="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></Link>
             </div>

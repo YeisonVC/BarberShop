@@ -1,44 +1,85 @@
 import React from 'react'; 
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {isNull} from 'util';
+import Cookies from 'universal-cookie';
+import {calcularExpirarSesion} from '../helper/helper';
+import app from '../../app.json';
+const {APIHOST} = app;
+const cookies = new Cookies();
 
-export const Login = () => { 
-    
-    return (
-        <div className='background'>
-            <h1 className='nombre-pagina text'>
-                Login
-            </h1>
 
-            <p className='descripcion-pagina text'>Inicia sesión con tus datos</p>
+export default class Login extends React.Component { 
+    constructor(props) {
+        super(props);
+        this.state={
+            usuario: '',
+            pass: '',
+        };
+    }
+    iniciarSesion(){
+        axios.post(`${APIHOST}/usuarios/login`, {
+            usuario: this.state.usuario, 
+            pass: this.state.pass, 
+        })
+        .then((response) => {
+            if(isNull (response.data.token) ) {
+                alert('Usuario y/o contraseña invalido');
+            } else {
+                cookies.set('_s', response.data.token, {
+                    path: "/",
+                    expires: calcularExpirarSesion(),
+                });
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 
-            <form className='formulario' method='POST' action='/'>
-                <div className='campo'>
-                    <label className='text' for='email'>E-mail:</label>
-                    <input 
-                        type="email" 
-                        id='email'
-                        placeholder='Tu Email'
-                        name="email" 
-                    />
+    render() {
+        return (
+            <div className='background'>
+                <h1 className='nombre-pagina text'>
+                    Login
+                </h1>
+
+                <p className='descripcion-pagina text'>Inicia sesión con tus datos</p>
+
+                <form className='formulario'>
+                    <div className='campo'>
+                        <label className='text' htmlFor='usuario'>Usuario:</label>
+                        <input
+                            type="text"
+                            id='usuario'
+                            placeholder='Tu Usuario'
+                            name="usuario"
+                            onChange={(e) =>
+                                this.setState({ usuario: e.target.value })} />
+                    </div>
+
+                    <div className='campo'>
+                        <label className='text' htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            id='password'
+                            name="password"
+                            placeholder='Tu Contraseña'
+                            onChange={(e) =>
+                                this.setState({ pass: e.target.value })} />
+                    </div>
+
+                    <input className="boton" type="button" value="Iniciar Session"
+                        onClick={() => {
+                            this.iniciarSesion();
+                        }} />
+                </form>
+
+                <div className="acciones">
+                    <Link to="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></Link>
+                    <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
                 </div>
-
-                <div className='campo'>
-                    <label className='text' for="password">Password:</label>
-                    <input 
-                        type="password" 
-                        id='password'
-                        name="password" 
-                        placeholder='Tu Contraseña'
-                    />
-                </div>
-
-                <input type="submit" className="boton" value="Iniciar Sesion"/>
-            </form>
-
-            <div class="acciones">
-                <Link to="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></Link>
-                <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
             </div>
-        </div>
-    )
+        )
+    }
 }

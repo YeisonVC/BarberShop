@@ -8,6 +8,8 @@ var database = require("./config/database");
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 var auth = require("./auth/main_auth");
+var cors = require("cors");
+
 var serviciosRouter = require('./routes/servicios.router');
 var citasRouter = require('./routes/citas.router');
 var citasServiciosRouter = require('./routes/citasServicios.router');
@@ -20,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 //Mongo connection
 database.mongoConnect(); 
