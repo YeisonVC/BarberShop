@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../auth/privaterouter';
 
 import Login from '../login/Login';
-import Singup  from '../singup/Singup';
+import Singup from '../singup/Singup';
 import Recuperar from '../recuperar/Recuperar';
-
-
+import Home from '../home/home';
 
 export default function AppRouter() {
     return(
@@ -27,8 +26,4 @@ export default function AppRouter() {
             </Switch>
         </Router>
     )
-}
-
-function Home() {
-    return <h2>Home</h2>;
 }

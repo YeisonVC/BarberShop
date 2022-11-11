@@ -1,9 +1,8 @@
 import React from 'react'; 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import {isNull} from 'util';
 import Cookies from 'universal-cookie';
-import {calcularExpirarSesion} from '../helper/helper';
+import {calculaExtracionSesion} from '../helper/helper';
 import app from '../../app.json';
 import Loading from '../loading/loading';
 const {APIHOST} = app;
@@ -31,8 +30,9 @@ export default class Login extends React.Component {
             } else {
                 cookies.set('_s', response.data.token, {
                     path: "/",
-                    expires: calcularExpirarSesion(),
+                    expires: calculaExtracionSesion(),
                 });
+                this.props.history.push(window.open("/home"));
             }
             this.setState({loading:false});
         })
