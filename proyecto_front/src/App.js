@@ -2,7 +2,7 @@ import React from 'react';
 import './build/css/app.css';
 
 //Router v6
-import AppRoutes from './components/router/routes';
+import AppRouter from './components/router/router';
 
 //theme
 import { useContext } from 'react';
@@ -27,7 +27,7 @@ function App() {
         </div>
 
         <div className="app">
-          <AppRoutes />
+          <AppRouter />
         </div>
       </main>
     </div>

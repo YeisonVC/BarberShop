@@ -2,17 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export const Singup = () => { 
-    
-    return (
-        <div className='background'>
-            <h1 className='nombre-pagina text'>
-                Crear Cuenta
-            </h1>
+export default class Singup extends React.Component { 
+    constructor(props) {
+        super(props);
+        this.state={
+            usuario: '',
+            pass: '',
+            mail: '',
+            telefono: '',
+        };
+    }
+    render() {
+        return (
+            <div className='background'>
+                <h1 className='nombre-pagina text'>
+                    Crear Cuenta
+                </h1>
 
-            <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
+                <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
-            <form className='formulario' method='POST' action='/crear-cuenta'>
+                <form className='formulario' method='POST' action='/crear-cuenta'>
                     <div className="campo">
                         <label className='text' htmlFOR='nombre'>Nombre:</label>
                         <input
@@ -63,13 +72,14 @@ export const Singup = () => {
                         />
                     </div>{/* .campo */}
 
-                <input type="submit" className="boton" value="Crear Cuenta"/>
-            </form>
+                    <input type="submit" className="boton" value="Crear Cuenta" />
+                </form>
 
-            <div className="acciones">
-                <Link to="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></Link>
-                <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
+                <div className="acciones">
+                    <a href="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></a>
+                    <a href='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></a>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }

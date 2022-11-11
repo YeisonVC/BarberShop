@@ -5,6 +5,7 @@ import {isNull} from 'util';
 import Cookies from 'universal-cookie';
 import {calcularExpirarSesion} from '../helper/helper';
 import app from '../../app.json';
+import Loading from '../loading/loading';
 const {APIHOST} = app;
 const cookies = new Cookies();
 
@@ -13,11 +14,13 @@ export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state={
+            loading: false,
             usuario: '',
             pass: '',
         };
     }
     iniciarSesion(){
+        this.setState({loading: true});
         axios.post(`${APIHOST}/usuarios/login`, {
             usuario: this.state.usuario, 
             pass: this.state.pass, 
@@ -31,15 +34,19 @@ export default class Login extends React.Component {
                     expires: calcularExpirarSesion(),
                 });
             }
+            this.setState({loading:false});
         })
         .catch((err) => {
             console.log(err);
+            this.setState({loading:false});
         });
     }
 
     render() {
         return (
+            
             <div className='background'>
+                <Loading show={this.state.loading}/>
                 <h1 className='nombre-pagina text'>
                     Login
                 </h1>
@@ -76,8 +83,8 @@ export default class Login extends React.Component {
                 </form>
 
                 <div className="acciones">
-                    <Link to="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></Link>
-                    <Link to='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></Link>
+                    <a href="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></a>
+                    <a href='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></a>
                 </div>
             </div>
         )
