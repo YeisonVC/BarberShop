@@ -8,7 +8,6 @@ export const Navbar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
     
     return (
-        <div className={theme}>
             <header className={`Navbar-header background2`}>
 
                 <div className='Navbar-logo logo'>
@@ -36,6 +35,5 @@ export const Navbar = () => {
                 </div>
 
             </header>
-        </div>
     )
 }

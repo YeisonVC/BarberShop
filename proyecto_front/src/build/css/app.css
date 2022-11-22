@@ -907,9 +907,27 @@ p {
   animation-delay: 0.3s;
 }
 
+#alerta {
+  padding: 1.25rem;
+  color: #FFFFFF;
+  width: 100%;
+  display: block;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#alerta.error {
+  background-color: #cb0000;
+}
+#alerta.exito {
+  background-color: #329f00;
+}
+
 /* Estilos al la barra de navegación */
 /* Estilos al Slider de imagenes */
 /* cambio entre modos Dark / Light */
 /* Estilos a los formularios */
 /* Estilos a los formularios */
 /* Estilos al loading */
+/* Estilos a las alertas */
