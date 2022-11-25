@@ -14,6 +14,7 @@ var serviciosRouter = require('./routes/servicios.router');
 var citasRouter = require('./routes/citas.router');
 var citasServiciosRouter = require('./routes/citasServicios.router');
 var usuariosRouter = require('./routes/usuarios.router');
+var usuariosRegisterRouter = require('./routes/usuariosRegister.router');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(cors());
 database.mongoConnect(); 
 
 //Router
+app.use('/usuarios', usuariosRegisterRouter);
 //primero se logea se autentica para poder acceder s lo demás
 app.use('/usuarios', usuariosRouter);
 app.use(auth);//Debería ir después del proceso de Login

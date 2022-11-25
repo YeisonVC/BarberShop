@@ -1,44 +1,67 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom';
+
+import { request } from "../helper/helper";
+import Loading from "../loading/loading";
 
 
 export default class Singup extends React.Component { 
     constructor(props) {
         super(props);
-        this.state={
-            usuario: '',
-            pass: '',
-            mail: '',
-            telefono: '',
+        this.state = {
+            loading: false,
+            empleado: {
+                usuario: '',
+                telefono: '',
+                mail: '',
+                pass: '',
+            },
         };
     }
+    setValue(inicio, value) {
+        this.setState({
+            empleado: {
+                ...this.state.empleado,
+                [inicio]: value,
+            },
+        });
+    }
+
+    guardarEmpleados() {
+        this.setState({ loading: true });
+        request
+        .post('/usuarios/crear-cuenta', this.state.empleado)
+        .then( (response) => {
+            if(response.data.exito){
+                console.log('AÑADIDO')
+                this.props.history.push(window.open("/login"));
+            }
+            this.setState({ loading: false });
+        })
+        .catch( (err) => {
+            console.error(err);
+            this.setState({ loading: true });
+        });
+    }
+
     render() {
         return (
             <div className='background'>
+                <Loading show = { this.state.loading} />
                 <h1 className='nombre-pagina text'>
                     Crear Cuenta
                 </h1>
 
                 <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
-                <form className='formulario' method='POST' action='/crear-cuenta'>
+                <form className='formulario'>
                     <div className="campo">
-                        <label className='text' htmlFOR='nombre'>Nombre:</label>
+                        <label className='text' htmlFor='nombre'>Nombre:</label>
                         <input
                             type="text"
                             id='nombre'
                             name="nombre"
                             placeholder='Tu Nombre'
-                        />
-                    </div>{/* .campo */}
-
-                    <div className="campo">
-                        <label className='text' htmlFor='apellido'>Apellido:</label>
-                        <input
-                            type="text"
-                            id='apellido'
-                            name="apellido"
-                            placeholder='Tu Apellido'
+                            onChange = {(e) => this.setValue('usuario', e.target.value)}
                         />
                     </div>{/* .campo */}
 
@@ -49,6 +72,7 @@ export default class Singup extends React.Component {
                             id='telefono'
                             name="telefono"
                             placeholder='Tu Teléfono'
+                            onChange = {(e) => this.setValue('telefono', e.target.value)}
                         />
                     </div>{/* .campo */}
 
@@ -59,6 +83,7 @@ export default class Singup extends React.Component {
                             id='email'
                             name="email"
                             placeholder='Tu E-mail'
+                            onChange = {(e) => this.setValue('mail', e.target.value)}
                         />
                     </div>{/* .campo */}
 
@@ -69,10 +94,11 @@ export default class Singup extends React.Component {
                             id='password'
                             name="password"
                             placeholder='Tu Password'
+                            onChange = {(e) => this.setValue('pass', e.target.value)}
                         />
                     </div>{/* .campo */}
 
-                    <input type="submit" className="boton" value="Crear Cuenta" />
+                    <input type="submit" className="boton" value="Crear Cuenta" onClick = { () => console.log( this.guardarEmpleados() )}/>
                 </form>
 
                 <div className="acciones">
