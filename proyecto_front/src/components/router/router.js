@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../auth/privaterouter';
 
 import Login from '../login/Login';
-import Singup from '../singup/Singup';
+import Singup from '../singup/Singup.jsx';
 import Recuperar from '../recuperar/Recuperar';
 import Home from '../home/home';
 
