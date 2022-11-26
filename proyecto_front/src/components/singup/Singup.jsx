@@ -35,7 +35,9 @@ const Register = () => {
                 .then((res) => {
                     const { data } = res;
                     setMensaje(data.mensaje);
+                    console.log(data.mensaje)
                     setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
+                    
                     setTimeout(() => {
                         setMensaje("");
                         history.push('/login');
@@ -61,7 +63,9 @@ const Register = () => {
 
             <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
-            <form className='formulario' onSubmit={(e) => onSubmit(e)}>
+            {mensaje && <div htmlFor="alerta" className="error">{mensaje}</div>}
+
+            <form className='formulario' >
                 <div className="campo">
                     <label className='text' htmlFor='nombre'>Nombre:</label>
                     <input
@@ -109,7 +113,7 @@ const Register = () => {
                         onChange={(e) => onChange(e)}
                     />
                 </div>{/* .campo */}
-                <button className="boton" type="submit">
+                <button className="boton" type="submit" onClick={(e) => onSubmit(e)}>
                     {loading ? "Cargando..." : "Registrarme"}
                 </button>
             </form>
@@ -118,11 +122,13 @@ const Register = () => {
                 <a href="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></a>
                 <a href='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></a>
             </div>
-            {mensaje && <div>{mensaje}</div>}
+            
         </div>
         
     )
 }
 
 export default Register;
+
+
 
