@@ -907,7 +907,7 @@ p {
   animation-delay: 0.3s;
 }
 
-#alerta {
+.alerta {
   padding: 1.25rem;
   color: #FFFFFF;
   width: 100%;
@@ -917,10 +917,12 @@ p {
   font-weight: 700;
   text-transform: uppercase;
 }
-#alerta.error {
+
+.error {
   background-color: #cb0000;
 }
-#alerta.exito {
+
+.exito {
   background-color: #329f00;
 }
 

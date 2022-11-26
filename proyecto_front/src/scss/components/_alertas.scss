@@ -1,6 +1,6 @@
 @use '../base/variables' as v;
 
-#alerta {
+.alerta {
     padding: calc(v.$separacion / 4);
     color: v.$blanco;
     width: 100%;
@@ -9,12 +9,11 @@
     text-align: center;
     font-weight: v.$bold;
     text-transform: uppercase;
+}
+.error {
+    background-color: v.$rojo;
+}
 
-    &.error {
-        background-color: v.$rojo;
-    }
-
-    &.exito {
-        background-color: v.$verde;
-    }
+.exito {
+    background-color: v.$verde;
 }

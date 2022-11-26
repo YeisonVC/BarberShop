@@ -118,12 +118,8 @@ function alerta(mensaje, tipoAlerta) {
 
     const list = document.getElementById("app-login");
     list.insertBefore(newNode, list.children[3]);
-    setTimeout(quitarAlerta, 3000);
 }
 
-function quitarAlerta() {
-    document.getElementById("alerta").remove();
-}
 
 
 

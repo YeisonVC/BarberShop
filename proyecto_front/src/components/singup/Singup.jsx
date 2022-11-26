@@ -22,7 +22,15 @@ const Register = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (nombre !== "" && contraseña !== "" && correo !== "" && telefono !== "") {
+        if(!nombre){
+            setMensaje("Debe ingresar un nombre");
+        } else if(!telefono){
+            setMensaje("Debe ingresar un teléfono");
+        } else if(correo === ""){
+            setMensaje("Debe ingresar un correo");
+        } else if(correo === ""){
+            setMensaje("Debe ingresar una contraseña");
+        }else if (nombre !== "" && contraseña !== "" && correo !== "" && telefono !== "") {
             const Usuario = {
                 nombre,
                 correo,
@@ -32,15 +40,14 @@ const Register = () => {
             setLoading(true);
             await axios
                 .post("http://localhost:3001/register", Usuario)
-                .then((res) => {
-                    const { data } = res;
+                .then(({data}) => {
                     setMensaje(data.mensaje);
-                    console.log(data.mensaje)
                     setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
                     
                     setTimeout(() => {
                         setMensaje("");
                         history.push('/login');
+                        setLoading(false);
                     }, 1500);
                 })
                 .catch((error) => {
@@ -48,6 +55,7 @@ const Register = () => {
                     setMensaje("Hubo un error");
                     setTimeout(() => {
                         setMensaje("");
+                        setLoading(false);
                     }, 1500);
                 });
 
@@ -56,16 +64,18 @@ const Register = () => {
     };
 
     return (
-        <div className='background'>
+        <div className='background app-login2'>
             <h1 className='nombre-pagina text'>
                 Crear Cuenta
             </h1>
 
             <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
 
-            {mensaje && <div htmlFor="alerta" className="error">{mensaje}</div>}
+            {mensaje && <div className="error alerta">
+                {mensaje}
+            </div>}
 
-            <form className='formulario' >
+            <form className='formulario' onSubmit={(e) => onSubmit(e)}>
                 <div className="campo">
                     <label className='text' htmlFor='nombre'>Nombre:</label>
                     <input
@@ -113,7 +123,7 @@ const Register = () => {
                         onChange={(e) => onChange(e)}
                     />
                 </div>{/* .campo */}
-                <button className="boton" type="submit" onClick={(e) => onSubmit(e)}>
+                <button className="boton" type="submit">
                     {loading ? "Cargando..." : "Registrarme"}
                 </button>
             </form>
@@ -129,6 +139,3 @@ const Register = () => {
 }
 
 export default Register;
-
-
-
