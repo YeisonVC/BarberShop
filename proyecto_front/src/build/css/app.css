@@ -744,6 +744,7 @@ p {
   display: flex;
   margin-bottom: 2rem;
   align-items: center;
+  position: relative;
 }
 .campo label {
   flex: 0 0 10rem;

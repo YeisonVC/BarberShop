@@ -2,19 +2,15 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const Register = () => {
+
+const Login = () => {
     const history = useHistory();
 
-    const [inputs, setInputs] = useState({
-        correo: "",
-        nombre: "",
-        telefono: "",
-        contraseña: "",
-    });
-
+    const [inputs, setInputs] = useState({ correo: "", contraseña: "" });
     const [mensaje, setMensaje] = useState();
     const [loading, setLoading] = useState(false);
-    const { correo, nombre, telefono, contraseña } = inputs;
+
+    const { correo, contraseña } = inputs;
 
     const onChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -22,31 +18,26 @@ const Register = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(!nombre && !telefono && !contraseña && !correo){
+        if (!contraseña && !correo) {
             setMensaje("Todos los campos deben estar llenos");
-        }else if(!nombre){
-            setMensaje("Debe ingresar un nombre");
-        } else if(!telefono){
-            setMensaje("Debe ingresar un teléfono");
-        } else if(!correo){
+        } else if (!correo) {
             setMensaje("Debe ingresar un correo");
-        } else if(!contraseña){
+        } else if (!contraseña) {
             setMensaje("Debe ingresar una contraseña");
-        }else if (nombre !== "" && contraseña !== "" && correo !== "" && telefono !== "") {
+        } else if (correo !== "" && contraseña !== "") {
             const Usuario = {
-                nombre,
                 correo,
-                telefono,
                 contraseña,
             };
             setLoading(true);
             await axios
-                .post("http://localhost:3001/register", Usuario)
-                .then(({data}) => {
-                    setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
+                .post("http://localhost:3001/login", Usuario)
+                .then(({ data }) => {
+                    setMensaje(data.mensaje);
+                    setInputs({ correo: "", contraseña: "" });
                     setTimeout(() => {
                         setMensaje("");
-                        history.push('/login');
+                        history.push(`/home/${data?.usuario.id}`);
                         setLoading(false);
                     }, 1500);
                 })
@@ -62,43 +53,19 @@ const Register = () => {
     };
 
     return (
-        <div className='background app-login2'>
+        <div id='app-login'>
             <h1 className='nombre-pagina text'>
-                Crear Cuenta
+                Login
             </h1>
 
-            <p className='descripcion-pagina text'>Llena el siguiente formulario para crear una cuenta</p>
+            <p className='descripcion-pagina text'>Inicia sesión con tus datos</p>
 
             {mensaje && <div className="error alerta">
                 {mensaje}
             </div>}
 
             <form className='formulario' onSubmit={(e) => onSubmit(e)}>
-                <div className="campo">
-                    <label className='text' htmlFor='nombre'>Nombre:</label>
-                    <input
-                        type="text"
-                        id='nombre'
-                        name="nombre"
-                        placeholder='Tu Nombre'
-                        autoComplete="off"
-                        onChange={(e) => onChange(e)}
-                    />
-                </div>{/* .campo */}
-
-                <div className="campo">
-                    <label className='text' htmlFor='telefono'>Teléfono:</label>
-                    <input
-                        type="tel"
-                        id='telefono'
-                        name="telefono"
-                        placeholder='Tu Teléfono'
-                        autoComplete="off"
-                        onChange={(e) => onChange(e)}
-                    />
-                </div>{/* .campo */}
-
-                <div className="campo">
+            <div className="campo">
                     <label className='text' htmlFor='correo'>E-mail:</label>
                     <input
                         type="email"
@@ -121,19 +88,18 @@ const Register = () => {
                         onChange={(e) => onChange(e)}
                     />
                 </div>{/* .campo */}
+
                 <button className="boton" type="submit">
-                    {loading ? "Cargando..." : "Registrarme"}
+                    {loading ? "Cargando..." : "Iniciar Sesión"}
                 </button>
             </form>
 
             <div className="acciones">
-                <a href="/" className='text'>¿Ya tienes una cuenta? <span className='texto_azul'> Iniciar Sesión</span></a>
+                <a href="/crear-cuenta" className='text'>¿Aún no tienes una cuenta? <span className='texto_azul'> Crear una</span></a>
                 <a href='/olvidaste' className='text'>¿Olvidaste tu contraseña?<span className='texto_azul'> Recuperar</span></a>
             </div>
-            
         </div>
-        
     )
 }
 
-export default Register;
+export default Login;
