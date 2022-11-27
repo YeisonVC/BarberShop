@@ -22,13 +22,15 @@ const Register = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(!nombre){
+        if(!nombre && !telefono && !contraseña && !correo){
+            setMensaje("Todos los campos deben estar llenos");
+        }else if(!nombre){
             setMensaje("Debe ingresar un nombre");
         } else if(!telefono){
             setMensaje("Debe ingresar un teléfono");
-        } else if(correo === ""){
+        } else if(!correo){
             setMensaje("Debe ingresar un correo");
-        } else if(correo === ""){
+        } else if(!contraseña){
             setMensaje("Debe ingresar una contraseña");
         }else if (nombre !== "" && contraseña !== "" && correo !== "" && telefono !== "") {
             const Usuario = {
@@ -41,13 +43,11 @@ const Register = () => {
             await axios
                 .post("http://localhost:3001/register", Usuario)
                 .then(({data}) => {
-                    setMensaje(data.mensaje);
                     setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
-                    
                     setTimeout(() => {
                         setMensaje("");
                         history.push('/login');
-                        setLoading(false);
+                        setLoading(true);
                     }, 1500);
                 })
                 .catch((error) => {
