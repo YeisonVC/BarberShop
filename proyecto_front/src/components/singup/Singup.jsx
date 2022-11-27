@@ -13,6 +13,7 @@ const Register = () => {
     });
 
     const [mensaje, setMensaje] = useState();
+    const [mensaje2, setMensaje2] = useState();
     const [loading, setLoading] = useState(false);
     const { correo, nombre, telefono, contraseña } = inputs;
 
@@ -44,11 +45,11 @@ const Register = () => {
                 .post("http://localhost:3001/register", Usuario)
                 .then(({data}) => {
                     setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
+                    setMensaje2(data.mensaje);
                     setTimeout(() => {
-                        setMensaje("");
                         history.push('/login');
                         setLoading(false);
-                    }, 1500);
+                    }, 3000);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -58,6 +59,9 @@ const Register = () => {
                         setLoading(false);
                     }, 1500);
                 });
+            setTimeout(() => {
+                setLoading(false);
+            }, 1500);
         }
     };
 
@@ -71,6 +75,9 @@ const Register = () => {
 
             {mensaje && <div className="error alerta">
                 {mensaje}
+            </div>}
+            {mensaje2 && <div className="exito alerta">
+                {mensaje2}
             </div>}
 
             <form className='formulario' onSubmit={(e) => onSubmit(e)}>

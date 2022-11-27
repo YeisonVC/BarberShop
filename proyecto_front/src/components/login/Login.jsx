@@ -8,6 +8,7 @@ const Login = () => {
 
     const [inputs, setInputs] = useState({ correo: "", contraseña: "" });
     const [mensaje, setMensaje] = useState();
+    const [mensaje2, setMensaje2] = useState();
     const [loading, setLoading] = useState(false);
 
     const { correo, contraseña } = inputs;
@@ -33,7 +34,7 @@ const Login = () => {
             await axios
                 .post("http://localhost:3001/login", Usuario)
                 .then(({ data }) => {
-                    setMensaje(data.mensaje);
+                    setMensaje2(data.mensaje);
                     setInputs({ correo: "", contraseña: "" });
                     setTimeout(() => {
                         setMensaje("");
@@ -49,6 +50,9 @@ const Login = () => {
                         setLoading(false);
                     }, 1500);
                 });
+            setTimeout(() => {
+                setLoading(false);
+            }, 1500);
         }
     };
 
@@ -63,6 +67,10 @@ const Login = () => {
             {mensaje && <div className="error alerta">
                 {mensaje}
             </div>}
+            {mensaje2 && <div className="exito alerta">
+                {mensaje2}
+            </div>}
+
 
             <form className='formulario' onSubmit={(e) => onSubmit(e)}>
             <div className="campo">
