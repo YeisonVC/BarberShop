@@ -1000,6 +1000,46 @@ p {
   visibility: hidden;
 }
 
+.listado-servicios {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .listado-servicios {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.listado-servicios .servicio {
+  background-color: #FFFFFF;
+  padding: 3rem;
+  border-radius: 1rem;
+  transition-property: transform;
+  transition-duration: 300ms;
+  text-align: center;
+  cursor: pointer;
+}
+.listado-servicios .servicio.seleccionado {
+  background-color: #0da6f3;
+}
+.listado-servicios .servicio.seleccionado p {
+  color: #FFFFFF;
+}
+.listado-servicios .servicio:hover {
+  transform: scale(1.1);
+}
+.listado-servicios .servicio p {
+  color: #1a1b15;
+  margin: 0 0 1.25rem 0;
+}
+.listado-servicios .servicio .precio-servicio {
+  color: #0da6f3;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+}
+
 /* Estilos al la barra de navegación */
 /* Estilos al Slider de imagenes */
 /* cambio entre modos Dark / Light */
@@ -1010,3 +1050,4 @@ p {
 /* Estilos a la sección cita */
 /* Estilos a los tabs */
 /* Estilos a los tabs */
+/* Estilos a los servicios */

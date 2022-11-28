@@ -138,6 +138,77 @@ const Home = () => {
           </p>
 
           <div id="servicios" className="listado-servicios">
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Corte de Pelo Hombre
+              </p>
+              <p className="precio-servicio">
+                $20.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Corte + Barba
+              </p>
+              <p className="precio-servicio">
+                $25.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Perfilado de Barba
+              </p>
+              <p className="precio-servicio">
+                $10.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Afeitado Completo
+              </p>
+              <p className="precio-servicio">
+                $15.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Corte de Cabello Mujer
+              </p>
+              <p className="precio-servicio">
+                $26.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Mascarilla de Carbón
+              </p>
+              <p className="precio-servicio">
+                $10.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Perfilado de Ceja
+              </p>
+              <p className="precio-servicio">
+                $6.000
+              </p>
+            </div>{/* .servicio */}
+
+            <div className="servicio">
+              <p className="nombre-servicio">
+                Mascarilla Exfoliante
+              </p>
+              <p className="precio-servicio">
+                $5.000
+              </p>
+            </div>{/* .servicio */}
 
           </div>
         </div>
