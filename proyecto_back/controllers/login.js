@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const Usuario = require('../model/usuario');
+const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
     const { correo, contraseña } = req.body;
@@ -13,15 +14,27 @@ const login = async (req, res) => {
             if(esCorrecta) {
                 const {id, nombre} = usuario
 
-                res.json({ mensaje: 'Usuario logeado correctamente', 
+                const data = {
+                    id,
+                    nombre,
+                  };
+          
+                  const token = jwt.sign(data, "secreto", {
+                    expiresIn: 3600 /* 1hr */,
+                  });
+          
+                  res.json({
+                    mensaje: "Usuario logeado correctamente",
                     usuario: {
-                        id,
-                        nombre,
-                    }
-                });
-            } else {
-                return res.json({ mensaje: 'Contraseña incorrecta'})
-            }
+                      id,
+                      nombre,
+                      token,
+                    },
+                  });
+                  
+                } else {
+                  return res.json({ mensaje: "Contraseña incorrecta" });
+                }
         })
     });
 }

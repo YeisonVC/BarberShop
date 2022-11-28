@@ -579,6 +579,18 @@ p {
   font-size: 2rem;
   font-weight: 700;
 }
+.Navbar-sesion .Navbar-sesion__salir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 4rem;
+  width: 15rem;
+}
+.Navbar-sesion .Navbar-sesion__salir a {
+  font-size: 2rem;
+  font-weight: 700;
+}
 
 .slider-frame {
   width: 100%;
@@ -756,6 +768,11 @@ p {
   padding: 1.25rem;
   border-radius: 1rem;
 }
+.campo input:disabled {
+  background-color: #898e6e;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
 
 .acciones {
   margin-top: 5rem;
@@ -927,6 +944,62 @@ p {
   background-color: #329f00;
 }
 
+.seccion {
+  padding: 5rem 0;
+  display: none;
+}
+.seccion .text-center {
+  text-align: center;
+}
+
+.mostrar {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .tabs {
+    display: flex;
+  }
+}
+.tabs button {
+  background-color: #0da6f3;
+  border: none;
+  color: #FFFFFF;
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: background-color 300ms ease;
+}
+.tabs button:hover {
+  cursor: pointer;
+  background-color: #0a85c3;
+}
+.tabs button.actual {
+  background-color: #FFFFFF;
+  color: #0da6f3;
+}
+
+.paginacion {
+  padding: 2.5rem 0;
+}
+@media (min-width: 480px) {
+  .paginacion {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.paginacion button {
+  margin: 0 0 1rem 0;
+  border-radius: 10rem;
+}
+
+.ocultar {
+  visibility: hidden;
+}
+
 /* Estilos al la barra de navegación */
 /* Estilos al Slider de imagenes */
 /* cambio entre modos Dark / Light */
@@ -934,3 +1007,6 @@ p {
 /* Estilos a los formularios */
 /* Estilos al loading */
 /* Estilos a las alertas */
+/* Estilos a la sección cita */
+/* Estilos a los tabs */
+/* Estilos a los tabs */

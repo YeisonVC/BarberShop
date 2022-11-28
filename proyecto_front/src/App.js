@@ -9,10 +9,8 @@ import { useContext } from 'react';
 import { ThemeContext } from './components/theme/ThemeContext.tsx';
 
 //Components
-import { Navbar } from './components/navbar/Navbar';
+import  Navbar from './components/navbar/Navbar.jsx';
 import Slider from './components/slider/Slider';
-
-
 
 function App() {
   //Theme

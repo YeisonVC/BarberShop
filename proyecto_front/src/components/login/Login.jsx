@@ -18,6 +18,7 @@ const Login = () => {
     };
 
     const onSubmit = async (e) => {
+        setMensaje("");
         e.preventDefault();
         if (!contraseña && !correo) {
             setMensaje("Todos los campos deben estar llenos");
@@ -33,13 +34,18 @@ const Login = () => {
             setLoading(true);
             await axios
                 .post("http://localhost:3001/login", Usuario)
-                .then(({ data }) => {
-                    setMensaje2(data.mensaje);
+                .then((res) => {
+                    const { data } = res;
+                    if(data.mensaje === "Usuario no encontrado"){
+                        setMensaje(data.mensaje);
+                    } else {
+                        setMensaje2(data.mensaje);
+                    }
                     setInputs({ correo: "", contraseña: "" });
                     setTimeout(() => {
-                        setMensaje("");
-                        history.push(`/home/${data?.usuario.id}`);
                         setLoading(false);
+                        localStorage.setItem("token", data?.usuario.token);
+                        history.push(`/home/${data?.usuario.id}`);
                     }, 1500);
                 })
                 .catch((error) => {
@@ -71,11 +77,11 @@ const Login = () => {
                 {mensaje2}
             </div>}
 
-
             <form className='formulario' onSubmit={(e) => onSubmit(e)}>
             <div className="campo">
                     <label className='text' htmlFor='correo'>E-mail:</label>
                     <input
+                        value={correo}
                         type="email"
                         id='correo'
                         name="correo"
@@ -88,6 +94,7 @@ const Login = () => {
                 <div className="campo">
                     <label className='text' htmlFor='contraseña'>Password:</label>
                     <input
+                        value={contraseña}
                         type="password"
                         id='contraseña'
                         name="contraseña"

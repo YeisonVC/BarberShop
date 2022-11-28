@@ -1,11 +1,13 @@
-import React from 'react'; 
-
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useContext } from 'react';
 import { ThemeContext } from '../theme/ThemeContext.tsx';
 
-
-export const Navbar = () => { 
+const Navbar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
+    const history = useHistory();
+    const [name, setName] = useState();
+    const [loading, setLoading] = useState(false);
     
     return (
             <header className={`Navbar-header background2`}>
@@ -37,3 +39,4 @@ export const Navbar = () => {
             </header>
     )
 }
+export default Navbar;

@@ -22,6 +22,7 @@ const Register = () => {
     };
 
     const onSubmit = async (e) => {
+        setMensaje("");
         e.preventDefault();
         if(!nombre && !telefono && !contraseña && !correo){
             setMensaje("Todos los campos deben estar llenos");
@@ -45,11 +46,15 @@ const Register = () => {
                 .post("http://localhost:3001/register", Usuario)
                 .then(({data}) => {
                     setInputs({ nombre: "", contraseña: "", correo: "", telefono: "" });
-                    setMensaje2(data.mensaje);
-                    setTimeout(() => {
-                        history.push('/login');
-                        setLoading(false);
-                    }, 3000);
+                    if(data.mensaje === "Usuario creado correctamente"){
+                        setMensaje2(data.mensaje);
+                        setTimeout(() => {
+                            setLoading(false);
+                            history.push('/login');
+                        }, 3000);
+                    } else {
+                        setMensaje(data.mensaje);
+                    }
                 })
                 .catch((error) => {
                     console.error(error);
@@ -84,6 +89,7 @@ const Register = () => {
                 <div className="campo">
                     <label className='text' htmlFor='nombre'>Nombre:</label>
                     <input
+                        value={nombre}
                         type="text"
                         id='nombre'
                         name="nombre"
@@ -96,6 +102,7 @@ const Register = () => {
                 <div className="campo">
                     <label className='text' htmlFor='telefono'>Teléfono:</label>
                     <input
+                        value={telefono}
                         type="tel"
                         id='telefono'
                         name="telefono"
@@ -108,6 +115,7 @@ const Register = () => {
                 <div className="campo">
                     <label className='text' htmlFor='correo'>E-mail:</label>
                     <input
+                        value={correo}
                         type="email"
                         id='correo'
                         name="correo"
@@ -120,6 +128,7 @@ const Register = () => {
                 <div className="campo">
                     <label className='text' htmlFor='contraseña'>Password:</label>
                     <input
+                        value={contraseña}
                         type="password"
                         id='contraseña'
                         name="contraseña"
@@ -128,6 +137,7 @@ const Register = () => {
                         onChange={(e) => onChange(e)}
                     />
                 </div>{/* .campo */}
+
                 <button className="boton" type="submit">
                     {loading ? "Cargando..." : "Registrarme"}
                 </button>

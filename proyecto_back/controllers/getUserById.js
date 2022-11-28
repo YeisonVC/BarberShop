@@ -1,7 +1,7 @@
 const Usuario = require("../model/usuario");
 
 const getUserById = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.user;
 
   if (id.length === 24) {
     Usuario.findById(id).then((usuario) => {
